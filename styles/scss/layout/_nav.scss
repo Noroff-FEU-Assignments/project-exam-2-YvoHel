@@ -1,0 +1,37 @@
+img{
+    padding: 1rem 1.5rem !important;
+}
+
+#nav-link{
+    color: black ;
+    font-size: 1.5rem ;
+    font-family: $primary-font;
+    margin: 0 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.activ{
+    text-decoration: underline $accsent-color 3px !important;
+    font-weight: bold;
+}
+
+footer{
+    background-color: $primary-color;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    p{
+        padding: 0 2rem;
+        margin-bottom: 0;
+        
+    }
+
+
+}
+
+
+
