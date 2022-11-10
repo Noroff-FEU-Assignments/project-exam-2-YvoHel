@@ -7,7 +7,9 @@ function MyApp({ Component, pageProps }) {
     import("bootstrap/dist/js/bootstrap");
 },[])
 
-  return <Component {...pageProps} />
+
+
+return <Component {...pageProps} />
   
 }
 

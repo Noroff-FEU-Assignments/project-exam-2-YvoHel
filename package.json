@@ -17,6 +17,7 @@
     "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.6",
     "eslint": "8.26.0",
     "eslint-config-next": "12.3.1",
     "node-sass": "^7.0.3"

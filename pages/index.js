@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Layout from "../components/layout/Layout";
 import Image from "next/image";
-import { Button } from "bootstrap";
 import Link from "next/link";
+
 
 export default function Home() {
  return (
@@ -18,7 +18,7 @@ export default function Home() {
        i helsehuset ved shellstasjonen på Straume ved Sartor storsenter.
      </p>
    </div>
-   <Link href="www.hairways.no"><button >Bestill time</button></Link>
+   <Link href="www.hairways.no"><button id="nav-link" >Bestill time</button></Link>
    </div>
   </Layout>
  );
