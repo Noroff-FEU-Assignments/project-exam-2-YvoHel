@@ -4,7 +4,6 @@ import MapIcon from "../icons/_map-icon";
 
 export default function Form() {
     return (
-        <>
         <div>
             <div>
             <h2>LURER DU PÅ NOE?</h2>
@@ -26,9 +25,7 @@ export default function Form() {
             <label for="exampleFormControlTextarea1" class="form-label">Melding</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-         </div>
+            </div>
         </div>
-        </>
-        
     );
    }
