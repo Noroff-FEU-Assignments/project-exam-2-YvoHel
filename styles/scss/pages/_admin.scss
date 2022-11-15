@@ -1,0 +1,23 @@
+#navbar-admin, #navbarNav-admin{
+    flex-direction: column !important;
+}
+
+#navbar-admin{
+    align-items: unset !important;
+    margin-left: 2rem;
+    max-width: 35rem;
+}
+
+#navbarNav-admin{
+    padding-top: 10rem;
+
+    li{
+        padding: 1.5rem 0;
+    }
+}
+
+
+
+
+
+
