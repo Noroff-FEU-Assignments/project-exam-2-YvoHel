@@ -3,7 +3,7 @@ import Layout from "../components/layout/_layout";
 
 
 import axios from "axios";
-import { BASE_URL_ANSATTE, BASE_URL_BEHANDLING, BASE_URL_FARGE, BASE_URL_KLIPP } from "../constants/api";
+import {BASE_URL_BEHANDLING, BASE_URL_FARGE, BASE_URL_KLIPP } from "../constants/api";
 
 export default function Index(props) {
  
