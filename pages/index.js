@@ -6,8 +6,10 @@ import Map from "../components/map/_map";
 
 
 
+
 export default function Home() {
  return (
+  
   <Layout>
    <Head />
    <Banner/>

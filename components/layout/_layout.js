@@ -28,7 +28,7 @@ export default function Layout({ children }) {
         <Link href="/contact"><a id="nav-link">Kontakt</a></Link>
         </li>
         <li class="nav-item">
-        <Link href="/admin"><a id="nav-link">login</a></Link>
+        <Link href="/login"><a id="nav-link">login</a></Link>
         </li>
       </ul>
     </div>
