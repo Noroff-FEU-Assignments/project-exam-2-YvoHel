@@ -1,11 +1,14 @@
-
-import { useState } from "react";
+import Link from "next/link";
+import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import FormError from "../common/_form-error";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api"
+import AuthContext from "../../context/AuthContext";
+import { useRouter } from "next/router";
+
 
 const url = BASE_URL + TOKEN_PATH;
 
@@ -20,26 +23,36 @@ export default function LoginForm() {
     const [submitting, setSubmitting] = useState(false);
 	const [loginError, setLoginError] = useState(null);
 
+   
+
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
 	});
 
-	async function onSubmit(data) {
+    const [auth, setAuth] = useContext(AuthContext);
+    
+    const router = useRouter();
+	
+    async function onSubmit(data) {
 		setSubmitting(true);
 		setLoginError(null);
-
+        
 		console.log(data);
 
 		try {
 			const response = await axios.post(url, data);
 			console.log("response", response.data);
+			setAuth(response.data);
+            router.push("/admin");
+            
 		} catch (error) {
 			console.log("error", error);
-			alert('Bad username or password')
+			setLoginError(error.toString());
 		} finally {
 			setSubmitting(false);
 		}
-	}
+    }
+
 
     return (
         <div className="card">
@@ -55,11 +68,11 @@ export default function LoginForm() {
                     <label>Password</label>
                     <input name="password" placeholder="Password" {...register('password', { required: true })} type="password" />
                         </div>
-                        <button>{submitting ? "Loggin in..." : "Login"}</button>
+                        <button>{submitting ? "Loggin in..." : "Login" }</button>
                 </fieldset>
             </form>
         </div>
     </div>
       
     );
-   }
+    }
