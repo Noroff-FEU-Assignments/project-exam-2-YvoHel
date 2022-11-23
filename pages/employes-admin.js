@@ -1,14 +1,16 @@
 import Head from "next/head";
-import LayoutAdmin from "../components/layout/_layout-admin";
+import Layout from "../components/layout/_layout";
+import MediaDropdown from "../components/about-section/_employes";
 
 
-export default function Admin() {
+export default function EmployesAdmin() {
  return (
-   <LayoutAdmin>
+   <Layout>
    <Head>
     <title>Admin</title>
    </Head>
-   </LayoutAdmin>
+   <MediaDropdown/>
+   </Layout>
   
  );
 }

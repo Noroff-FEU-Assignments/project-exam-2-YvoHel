@@ -13,16 +13,16 @@ export default function Servises(props) {
     <Layout>
       <Head title="Next Intro" />
 
-      {props.games.map((game) => {
-        return <h3 key={game.slug}>{game.id}</h3>;
+      {props.cut.map((cut) => {
+        return <h3 key={cut.slug}>{cut.title.rendered}</h3>;
       })}
 
-           {props.games.map((game) => {
-        return <h3 key={game.slug}>{game.id}</h3>;
+           {props.treat.map((treat) => {
+        return <h3 key={treat.slug}>{treat.title.rendered}</h3>;
       })}
       
-      {props.games.map((game) => {
-        return <h3 key={game.slug}>{game.id}</h3>;
+      {props.color.map((color) => {
+        return <h3 key={color.slug}>{color.title.rendered}</h3>;
       })}
     </Layout>
   );
@@ -30,7 +30,7 @@ export default function Servises(props) {
 
 export async function getStaticProps() {
 
-  let games = [];
+  let cut = [];
   let treat = [];
   let color = [];
 
@@ -39,7 +39,7 @@ export async function getStaticProps() {
    
     console.log(response.data);
  
-    games = response.data;
+    cut = response.data;
   } catch (error) {
     console.log(error);
   }
@@ -53,17 +53,7 @@ export async function getStaticProps() {
   } catch (error) {
     console.log(error);
   }
-
-  try {
-    const resp = await axios.get(BASE_URL_BEHANDLING);
-   
-    console.log(resp.data);
   
-    treat = resp.data;
-  } catch (error) {
-    console.log(error);
-  }
-
   try {
     const res = await axios.get(BASE_URL_FARGE);
     
@@ -76,7 +66,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      games: games,
+      cut: cut,
       treat : treat,
       color: color,
     },

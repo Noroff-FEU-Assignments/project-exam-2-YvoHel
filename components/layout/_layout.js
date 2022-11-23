@@ -1,30 +1,29 @@
-
-
 import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+
 
 export default function Layout({children}) {
 	
   const [auth, setAuth] = useContext(AuthContext);
 
-	const history = useHistory();
-
 	function logout() {
 		setAuth(null);
-  
-	}
+  }
 
  return (
   <>
     {auth ? (
-				<>
-				<Link href="/"><a onClick={logout}>Log out</a></Link>
-				</>
+        <nav class="nav flex-column" role="navigation">
+          <Image src= "/logo_white.png" width="400" height="100" alt="My image"/>
+          <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" >Log out</a></Link>
+          <Link href="/messages-admin"><a class="nav-link" id="nav-link">Messages</a></Link>
+          <Link href="/services-admin"><a class="nav-link" id="nav-link">Services</a></Link>
+          <Link href="/employes-admin"><a class="nav-link" id="nav-link">Employes</a></Link>
+        </nav>
 			) : (
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-light" role="navigation">
   <div class="container-fluid">
   <Image src= "/logo_white.png" width="400" height="100" alt="My image"/>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
