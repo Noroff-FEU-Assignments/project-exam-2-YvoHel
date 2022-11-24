@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useAxios from "../hooks/_useAxios";
-import MediaDropdown from "../components/about-section/_employes";
+
 
 
 const schema = yup.object().shape({
@@ -57,9 +57,6 @@ export default function AddPost() {
 						<textarea name="content" placeholder="Content" {...register('content', { required: true })} />
 					</div>
 
-					<div>
-						<MediaDropdown />
-					</div>
 					<button>{submitting ? "Submitting..." : "Submit"}</button>
 				</fieldset>
 			</form>
