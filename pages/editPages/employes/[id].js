@@ -1,25 +1,34 @@
-import Layout from "../components/layout/_layout";
-import Head from "../components/layout/_head";
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import useAxios from "../hooks/_useAxios";
+import { BASE_URL_FARGE } from "../../../constants/api";
 
+import useAxios from "../../../hooks/useAxios";
+import Head from "../../../components/layout/_head";
+import Layout from "../../../components/layout/_layout";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
 });
 
-export default function EditPost() {
+export async function getServerSideProps(context) {
+    const { id } = context.query;
+    console.log(`query id: ${id}`);
+    return { props: { id } };
+  }
+
+
+
+export default function EditPost(props) {
 	const [post, setPost] = useState(null);
 	const [updated, setUpdated] = useState(false);
 	const [fetchingPost, setFetchingPost] = useState(true);
 	const [updatingPost, setUpdatingPost] = useState(false);
 	const [fetchError, setFetchError] = useState(null);
 	const [updateError, setUpdateError] = useState(null);
+    const [error, setError] = useState(null);
 
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
@@ -27,9 +36,8 @@ export default function EditPost() {
 
 	const http = useAxios();
 
-	let { id } = useParams();
+	const url = `wp/v2/posts/${props.id}`;
 
-	const url = `wp/v2/posts/${id}`;
 
 	useEffect(
 		function () {
@@ -50,7 +58,8 @@ export default function EditPost() {
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[]
-	);
+    );
+
 
 	async function onSubmit(data) {
 		setUpdatingPost(true);
@@ -75,9 +84,19 @@ export default function EditPost() {
 
 	if (fetchError) return <div>Error loading post</div>;
 
-	return (
+  
+    async function handleDelete() {
+            try {
+                await http.delete(url);
+            } catch (error) {
+                setError(error);
+            }
+        }
+    
+    
+    return (
 		<Layout>
-			<Head title="Edit Post" />
+			<Head content="Edit Post" />
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{updated && <div className="success">The post was updated</div>}
@@ -85,6 +104,7 @@ export default function EditPost() {
 				<fieldset disabled={updatingPost}>
 					<div>
 						<input name="title" defaultValue={post.title.rendered} placeholder="Title" {...register('title', { required: true })} />
+					
 					</div>
 
 					<div>
@@ -92,8 +112,14 @@ export default function EditPost() {
 					</div>
 
 					<button>Update</button>
+
+                   
 				</fieldset>
 			</form>
+            <button type="button" className="delete" onClick={handleDelete}>
+                    {error ? "Error" : "Delete"}
+                    </button>
 		</Layout>
 	);
 }
+

@@ -1,11 +1,11 @@
-import Head from "../components/layout/_head";
+import Head from "../../components/layout/_head";
 
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import useAxios from "../hooks/_useAxios";
+import useAxios from "../../hooks/_useAxios";
 
 
 
@@ -13,7 +13,7 @@ const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
 });
 
-export default function AddPost() {
+export default function AddTreatment() {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
 
@@ -34,7 +34,7 @@ export default function AddPost() {
 		
 
 		try {
-			const response = await http.post("/wp/v2/posts?categories=3", data);
+			const response = await http.post("/wp/v2/posts?categories=6", data);
 			console.log("response", response.data);
 			
 		} catch (error) {
