@@ -14,7 +14,9 @@ export default function About(props) {
       <Head title="Next Intro" />
       <AboutSection/>
       {props.employes.map((employe) => {
-        return <h3 key={employe.id}>{employe.id}</h3>;
+        return <h3 key={employe.id}>
+          {employe.id}
+          </h3>;
       })}
       <Reviews/>
       </Layout>

@@ -14,15 +14,21 @@ export default function Servises(props) {
       <Head title="Next Intro" />
 
       {props.cut.map((cut) => {
-        return <h3 key={cut.slug}>{cut.title.rendered}</h3>;
+        return <a key={cut.id} href={`cut/${cut.id}`}>
+          {cut.title.rendered}{cut.slug}
+          </a>;
       })}
 
            {props.treat.map((treat) => {
-        return <h3 key={treat.slug}>{treat.title.rendered}</h3>;
+        return <a key={treat.id} href={`treatment/${treat.id}`}>
+          {treat.title.rendered}{treat.slug}
+          </a>;
       })}
       
       {props.color.map((color) => {
-        return <h3 key={color.slug}>{color.title.rendered}</h3>;
+        return <a key={color.id} href={`color/${color.id}`}>
+          {color.title.rendered}{color.id}
+          </a>;
       })}
     </Layout>
   );
