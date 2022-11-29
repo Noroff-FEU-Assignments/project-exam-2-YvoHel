@@ -3,11 +3,10 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BASE_URL_FARGE } from "../../../constants/api";
 
-import useAxios from "../../../hooks/useAxios";
-import Head from "../../../components/layout/_head";
-import Layout from "../../../components/layout/_layout";
+import useAxios from "../../hooks/useAxios";
+import Head from "../../components/layout/_head";
+import Layout from "../../components/layout/_layout";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -122,4 +121,3 @@ export default function EditPost(props) {
 		</Layout>
 	);
 }
-

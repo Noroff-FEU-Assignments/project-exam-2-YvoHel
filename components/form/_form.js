@@ -1,31 +1,73 @@
-import Phone from "../icons/_phone"
-import Mail from "../icons/_mail";
-import MapIcon from "../icons/_map-icon";
 
-export default function Form() {
-    return (
-        <div>
-            <div>
-            <h2>LURER DU PÅ NOE?</h2>
-            <p>Ta gjerne kontakt med oss om du har noen spørsmål om våre tjenester.</p>
-            <Phone/><p>98 10 00 11</p>
-            <Mail/><p>Post@hairways.no</p>
-            <MapIcon/><p>Sartorveien 10, 5353 Straume</p>
-            </div>
-            <div>
-            <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Navn</label>
-            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="name"/>
-            </div>
-            <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="navn@eksempel.no"/>
-            </div>
-            <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Melding</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            </div>
-        </div>
-    );
-   }
+
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import useAxios from "../../hooks/useAxios";
+
+
+
+const schema = yup.object().shape({
+	name: yup.string().required("Name is required"),
+});
+
+export default function AddEmploye() {
+	const [submitting, setSubmitting] = useState(false);
+	const [serverError, setServerError] = useState(null);
+
+	const history = useHistory();
+	const http = useAxios();
+
+	const { register, handleSubmit, errors } = useForm({
+		resolver: yupResolver(schema),
+	});
+
+	async function onSubmit(data) {
+		setSubmitting(true);
+		setServerError(null);
+
+		data.status = "publish";
+
+		console.log(data);
+		
+
+		try {
+			const response = await fetch("https://hairways.yvonnehelander.info/wp-json/wp/v2/comments", {method: 'PUT',});
+			console.log("response", response.data);
+			
+		} catch (error) {
+			console.log("error", error);
+			setServerError(error.toString());
+		} finally {
+			setSubmitting(false);
+		}
+	}
+
+	return (
+		<>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<fieldset disabled={submitting}>
+					<div>
+						<input name="name" placeholder="Name" {...register('name', { required: true })} />
+					</div>
+                    <div>
+						<input name="email" placeholder="Email" {...register('email', { required: true })} />
+					</div>
+
+					<div>
+						<textarea name="comment" placeholder="Comment" {...register('comment', { required: true })} />
+					</div>
+
+					<button>{submitting ? "Submitting..." : "Submit"}</button>
+				</fieldset>
+			</form>
+		</>
+	);
+    }
+
+
+
+ 
+

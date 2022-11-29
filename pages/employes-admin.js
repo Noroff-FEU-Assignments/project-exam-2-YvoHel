@@ -13,7 +13,7 @@ export default function EmployesAdmin(props) {
    <Link href= "/add/addEmploye"><a>Add post</a></Link>
    <title>Admin</title>
     {props.employes.map((employe) => {
-        return <a key={employe.id} href={`editPages/employes/${employe.id}`}>
+        return <a key={employe.id} href={`editPage/${employe.id}`}>
           {employe.id} <button>Edit</button>
           </a>;
       })}

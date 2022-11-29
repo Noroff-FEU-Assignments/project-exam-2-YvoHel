@@ -13,13 +13,13 @@ export default function Servises(props) {
       <Head title="Next Intro" />
       <Link href= "/add/addCut"><a>Add Cut</a></Link>
       {props.cut.map((cut) => {
-        return <a key={cut.id} href={`editPages/cut/${cut.id}`}>
+        return <a key={cut.id} href={`editPage/${cut.id}`}>
           {cut.title.rendered}{cut.slug}<button>Edit</button>
           </a>;
       })}
       <Link href= "/add/addTreatment"><a>Add Treatment</a></Link>
            {props.treat.map((treat) => {
-        return <a key={treat.id} href={`editPages/treatment/${treat.id}`}>
+        return <a key={treat.id} href={`editPage/${treat.id}`}>
           {treat.title.rendered}{treat.slug}<button>Edit</button>
           </a>;
       })}
@@ -27,7 +27,7 @@ export default function Servises(props) {
       <Link href= "/add/addColor"><a>Add Color</a></Link>
       {props.color.map((color) => {
         return <h2 key={color.id}> {color.title.rendered}{color.id} 
-          <a href={`editPages/color/${color.id}`}><button>Edit</button></a>
+          <a href={`editPage/${color.id}`}><button>Edit</button></a>
           </h2>
           ;
       })}
