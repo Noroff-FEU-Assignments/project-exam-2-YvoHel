@@ -1,19 +1,47 @@
+@import "../abstracts/variables";
 
-.banner-image{
-    margin-top: 2rem;
+nav{
+    img{
+        width: 200px !important;
+        padding-bottom: 1rem;
+    }
 }
 
+#navbarNav {
+    padding: 1rem 0 
+}
+
+.banner-image{
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.banner-text{
+    p{
+        display: none;
+    }
+}
 .map-container{
     background-color: $primary-color;
     display: flex;
-    flex-direction: row;
-    margin: 3rem auto ;
-    padding: 3rem 0;
+    flex-direction: column;
+    margin: 2rem 0.5rem 0rem;
     justify-content: space-evenly;
 }
 
+.google-map{
+    width: 90%;
+    height: 250px;
+    margin: auto;
+    padding-bottom: 2rem;
+}
+
 .openinghours{
-    margin: auto 0;
+    margin: auto;
+    border: solid 2px $secondary-color;
+    width: 80%;
+    margin: 3rem auto 1.5rem;
+    padding: 1.5rem 0.5rem 0rem;
 
     h2, p{
         color: $secondary-color;
@@ -25,7 +53,20 @@
     }
 
     p{
-        font-size: $base-font-size;
+        font-size: 1rem;
     }
+}
+
+footer{
+    color: black;
+    background-color: white;
+    font-size: 0.7rem;
+    padding: 2px;
+}
+@media screen and (min-width:$tablet-width){
+
+
+
+
 }
 

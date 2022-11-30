@@ -16,7 +16,7 @@ export default function Layout({children}) {
   <>
     {auth ? (
         <nav class="nav flex-column" role="navigation">
-          <Image src= "/logo_white.png" width="400" height="100" alt="My image"/>
+          <Image src= "/logo_white.png" alt="My image"/>
           <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" >Log out</a></Link>
           <Link href="/messages-admin"><a class="nav-link" id="nav-link">Messages</a></Link>
           <Link href="/services-admin"><a class="nav-link" id="nav-link">Services</a></Link>
