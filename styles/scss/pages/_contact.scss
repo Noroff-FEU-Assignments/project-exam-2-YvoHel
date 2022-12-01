@@ -1,0 +1,44 @@
+@import "../abstracts/variables";
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+
+    h2, p{
+        padding: 10px;
+    }
+}
+
+.contact-form{
+    width: 80%;
+    max-width: 500px;
+    margin:10px auto 60px;
+
+    label, h3{
+        color:white;
+        padding-top: 15px;
+    }
+}
+
+
+.contact-info{
+    color: $secondary-color;
+    margin:40px auto 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+button{
+    color: $secondary-color;
+    background-color: $primary-color;
+    border: solid 1px $secondary-color;
+    font-size: 1rem;
+    padding: 5px 30px;
+    margin-top: 20px;
+}
+
+@media screen and (min-width:$mobile-width){
+
+}
+

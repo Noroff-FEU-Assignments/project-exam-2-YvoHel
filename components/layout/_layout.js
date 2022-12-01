@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import LoginIcon from "../icons/_login-icon"
 
 
 export default function Layout({children}) {
@@ -17,7 +18,7 @@ export default function Layout({children}) {
     {auth ? (
         <nav class="nav flex-column" role="navigation">
           <Image src= "/logo_white.png" alt="My image"/>
-          <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" >Log out</a></Link>
+          <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" ><LoginIcon/></a></Link>
           <Link href="/messages-admin"><a class="nav-link" id="nav-link">Messages</a></Link>
           <Link href="/services-admin"><a class="nav-link" id="nav-link">Services</a></Link>
           <Link href="/employes-admin"><a class="nav-link" id="nav-link">Employes</a></Link>
@@ -45,15 +46,15 @@ export default function Layout({children}) {
                    <li class="nav-item">
                      <Link href="/contact"><a id="nav-link">Kontakt</a></Link>
                    </li>
-                   <li class="nav-item">
-                     <Link href="/login"><a id="nav-link">login</a></Link>
+                   <li class="nav-item" id="login-icon">
+                     <Link href="/login"><a id="nav-link" class="login-icon" ><LoginIcon/></a></Link>
                    </li>
                  </ul>
                </div>
   </div>
 </nav>
 )}
-<div className="content">{children}</div>
+<div>{children}</div>
 <footer>
   <p>© 2022 Hairways AS</p>  
   <p>Laget av Yvonne Helander</p> 

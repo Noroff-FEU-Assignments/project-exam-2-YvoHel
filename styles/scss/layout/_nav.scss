@@ -1,15 +1,28 @@
-#navbarNav{
-    padding-left: 3rem;
+#navbarNav {
+    padding: 2rem 0 0 0;
 }
 
 #nav-link{
     color: black ;
     font-size: 1.5rem ;
     font-family: $primary-font;
-    margin: 0 1rem;
+    margin: 0 0.8rem;
     text-decoration: none;
     text-transform: uppercase;
 }
+
+nav{
+    padding: 1.5rem 1rem !important;
+
+    img{
+        width: 200px !important;
+    }
+}
+
+#login-icon{
+    width: 1rem;
+}
+
 
 .activ{
     text-decoration: underline $accsent-color 3px !important;
@@ -33,5 +46,51 @@ footer{
 
 }
 
+@media screen and (min-width:374px){
+
+    nav img{
+        width: 250px !important;
+    }
+
+}
+
+@media screen and (min-width:$mobile-width){
+
+    nav{
+        padding: 1.5rem 1rem 1.5rem 2rem !important;
+    
+    }
+
+}
+
+@media screen and (min-width:$laptop-width){
+    
+nav img{
+    width: 250px !important;
+    padding-left: 1rem;
+}
+
+#nav-link{
+    font-size: 1.3rem;
+}
+
+nav{
+    padding: 1.5rem 0 1.5rem 1.5rem !important;
+
+}
+
+#navbarNav {
+    padding: 0.5rem 0 0 1rem;
+}
+}
 
 
+@media screen and (min-width:$large-screen){
+    nav img{
+        width: 300px !important;
+    }
+
+    #navbarNav {
+        padding-left: 3rem;
+    }
+}

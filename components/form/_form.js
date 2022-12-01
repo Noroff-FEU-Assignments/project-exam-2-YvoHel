@@ -1,71 +1,30 @@
 
 
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import useAxios from "../../hooks/useAxios";
+export default function Form() {
+  return (
+	<form class="contact-form">
+		<h3>Send oss en melding</h3>
+	<div class="form-group">
+	  <label for="exampleFormControlInput1">Navn</label>
+	  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ditt navn"/>
+	</div>
+	<div class="form-group">
+	  <label for="exampleFormControlInput1">Email adresse</label>
+	  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+	</div>
+	
+	<div class="form-group">
+	  <label for="exampleFormControlTextarea1">Din melding</label>
+	  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
+	<button>Send</button>
+  </form>
+
+  );
+  }
 
 
 
-const schema = yup.object().shape({
-	name: yup.string().required("Name is required"),
-});
-
-export default function AddEmploye() {
-	const [submitting, setSubmitting] = useState(false);
-	const [serverError, setServerError] = useState(null);
-
-	const history = useHistory();
-	const http = useAxios();
-
-	const { register, handleSubmit, errors } = useForm({
-		resolver: yupResolver(schema),
-	});
-
-	async function onSubmit(data) {
-		setSubmitting(true);
-		setServerError(null);
-
-		data.status = "publish";
-
-		console.log(data);
-		
-
-		try {
-			const response = await fetch("https://hairways.yvonnehelander.info/wp-json/wp/v2/comments", {method: 'PUT',});
-			console.log("response", response.data);
-			
-		} catch (error) {
-			console.log("error", error);
-			setServerError(error.toString());
-		} finally {
-			setSubmitting(false);
-		}
-	}
-
-	return (
-		<>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<fieldset disabled={submitting}>
-					<div>
-						<input name="name" placeholder="Name" {...register('name', { required: true })} />
-					</div>
-                    <div>
-						<input name="email" placeholder="Email" {...register('email', { required: true })} />
-					</div>
-
-					<div>
-						<textarea name="comment" placeholder="Comment" {...register('comment', { required: true })} />
-					</div>
-
-					<button>{submitting ? "Submitting..." : "Submit"}</button>
-				</fieldset>
-			</form>
-		</>
-	);
-    }
 
 
 
