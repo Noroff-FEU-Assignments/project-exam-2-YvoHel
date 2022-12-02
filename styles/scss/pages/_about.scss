@@ -1,0 +1,19 @@
+@import '/styles/scss/abstracts/variables';
+
+.about{
+    background-color: $primary-color;
+    margin: 1rem;
+    color: $secondary-color;
+
+    img{
+        padding:1rem !important;
+    }
+
+    h2{
+        padding:1rem;
+    }
+
+    p{
+        padding:1rem;
+    }
+}

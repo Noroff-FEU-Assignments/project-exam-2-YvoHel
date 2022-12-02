@@ -9,26 +9,45 @@ export default function Servises(props) {
 
   return (
     <Layout>
-      <Head title="Next Intro" />
-
+      <Head title="Behandlinger" />
+      <div className="services">
+      <div className="services-intro">
+      <h1>Våre behandlinger</h1>
+      <p>Alle priser er FRA priser. Kort hår = ned til nakke. 
+         Langt hår = fra skulder og ned. NB! Om det er
+         fullt på nettsiden, ring så prøver vi å finne time 
+         til deg. Det finnes et utvalg behandlinger som 
+         vi ikke tilbyr på Online bestilling. Ring for
+         nærmere informasjon.</p>
+      </div>
+      <div className="service-list">
+      <div className="cut-container">
+      <h2>Klipp</h2>
       {props.cut.map((cut) => {
         return <a key={cut.id} href={`services/cut/${cut.id}`}>
-          {cut.title.rendered}{cut.slug}
+          <h3>{cut.title.rendered}</h3>
           </a>;
       })}
-
-           {props.treat.map((treat) => {
-        return <a key={treat.id} href={`services/treatment/${treat.id}`}>
-          {treat.title.rendered}{treat.slug}
-          </a>;
-      })}
-      
+      </div>
+      <div className="color-container">
+        <h2>Farge</h2>
       {props.color.map((color) => {
         return <a key={color.id} href={`services/color/${color.id}`}>
-          {color.title.rendered}{color.id}
+          <h3>{color.title.rendered}</h3>
           </a>;
       })}
-    </Layout>
+      </div>
+      <div className="treatment-container">
+        <h2>Behandlinger</h2>
+           {props.treat.map((treat) => {
+        return <a key={treat.id} href={`services/treatment/${treat.id}`}>
+          <h3>{treat.title.rendered}</h3>
+          </a>;
+      })}
+      </div>
+      </div>
+      </div>
+      </Layout>
   );
 }
 

@@ -5,10 +5,7 @@ import { BASE_URL_FARGE } from "../../../constants/api";
 
 export default function Color({color}) {
     return (
-     <Layout>
-      <Head title={color.title.rendered} />
       <h1>{color.title.rendered}</h1>
-     </Layout>
     );
    }
    

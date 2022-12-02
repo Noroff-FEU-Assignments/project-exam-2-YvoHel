@@ -35,10 +35,29 @@ button{
     border: solid 1px $secondary-color;
     font-size: 1rem;
     padding: 5px 30px;
-    margin-top: 20px;
+    margin-top: 20px !important;
 }
 
-@media screen and (min-width:$mobile-width){
+@media screen and (min-width:$laptop-width){
+    .contact{
+        flex-direction: row;
+        padding: 5rem 0 ;
+        margin: 0 1rem;
+
+    }
+
+    .contact-form{
+        padding: 2rem;
+    }
+    
+    
+    .contact-info{
+        padding: 2rem;
+
+        p{
+            font-size: 1.2rem;
+        }
+    }
 
 }
 

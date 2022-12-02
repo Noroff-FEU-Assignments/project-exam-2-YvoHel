@@ -23,6 +23,8 @@
         margin-bottom: 4px;
         display: none;
         font-weight:400;
+        font-family:$heading-font;
+        text-transform: uppercase;
     }
 
     h2{
@@ -50,7 +52,7 @@
     width: 50%;
     border:solid 1px $secondary-color;
     position: absolute;
-    top: 75%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 600;
@@ -183,15 +185,18 @@
         }
     
     }
+
     
     .banner-button{
         font-size: 1.2rem;
         width: 50%;
         border:solid 2px $secondary-color;
         font-weight: 600;
-        padding: 20px;
+        padding: 15px;
         max-width: 300px;
-        
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .google-map{
@@ -222,4 +227,3 @@
 
 
 }
-
