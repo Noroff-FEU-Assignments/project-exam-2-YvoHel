@@ -1,5 +1,6 @@
 
-
+import Layout from "../../components/layout/_layout";
+import Head from "../../components/layout/_head";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -46,20 +47,25 @@ export default function AddEmploye() {
 	}
 
 	return (
-		<>
+	<Layout>
+		<Head/>
+		<div class="edit-delete">
+		<h1>Legg til Ansatt</h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<fieldset disabled={submitting}>
-					<div>
+					<div class="form-group">
 						<input name="title" placeholder="Title" {...register('title', { required: true })} />
 					</div>
 
-					<div>
+					<div class="form-group">
 						<textarea name="content" placeholder="Content" {...register('content', { required: true })} />
 					</div>
 
-					<button>{submitting ? "Submitting..." : "Submit"}</button>
+					<button>{submitting ? "Legger til..." : "Legg til"}</button>
 				</fieldset>
 			</form>
-		</>
+			</div>
+		</Layout>
+	
 	);
     }

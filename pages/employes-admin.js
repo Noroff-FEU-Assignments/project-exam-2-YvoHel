@@ -3,6 +3,9 @@ import Layout from "../components/layout/_layout";
 import axios from "axios";
 import Link from "next/link";
 import { BASE_URL_ANSATTE } from "../constants/api";
+import Pen from "../components/icons/_pen-icon";
+import AddIcon from "../components/icons/_add-icon";
+import ArrowLeft from "../components/icons/_arrow-left";
 
 
 export default function EmployesAdmin(props) {
@@ -10,13 +13,16 @@ export default function EmployesAdmin(props) {
    <Layout>
    <Head>
    </Head>
-   <Link href= "/add/addEmploye"><a>Add post</a></Link>
    <title>Admin</title>
+   <div className="edit">
+   <h2><Link href= "/admin"><a><ArrowLeft/></a></Link> Ansatte</h2>
+   <Link href= "/add/addEmploye"><a>Legg til ansatt<AddIcon/></a></Link>
     {props.employes.map((employe) => {
-        return <a key={employe.id} href={`editPage/${employe.id}`}>
-          {employe.id} <button>Edit</button>
+        return <a key={employe.id} href={`editPage/${employe.id}`} class="edit-card">
+          <h3>{employe.title.rendered}</h3> <p><Pen/></p>
           </a>;
       })}
+      </div>
    </Layout>
   
  );

@@ -1,11 +1,11 @@
 import Head from "../../components/layout/_head";
-
+import Layout from "../../components/layout/_layout";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import useAxios from "../../hooks/_useAxios";
+import useAxios from "../../hooks/useAxios";
 
 
 
@@ -46,20 +46,24 @@ export default function AddCut() {
 	}
 
 	return (
-		<>
+		<Layout>
+		<Head/>
+		<div class="edit-delete">
+		<h1>Legg til Klipp </h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<fieldset disabled={submitting}>
-					<div>
+					<div class="form-group">
 						<input name="title" placeholder="Title" {...register('title', { required: true })} />
 					</div>
 
-					<div>
+					<div class="form-group">
 						<textarea name="content" placeholder="Content" {...register('content', { required: true })} />
 					</div>
 
-					<button>{submitting ? "Submitting..." : "Submit"}</button>
+					<button>{submitting ? "Legger til..." : "Legg til"}</button>
 				</fieldset>
 			</form>
-		</>
+			</div>
+		</Layout>
 	);
     }

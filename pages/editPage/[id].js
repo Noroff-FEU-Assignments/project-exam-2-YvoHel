@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import Link from "next/link";
 import useAxios from "../../hooks/useAxios";
 import Head from "../../components/layout/_head";
 import Layout from "../../components/layout/_layout";
+import ArrowLeft from "../../components/icons/_arrow-left";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -96,28 +97,30 @@ export default function EditPost(props) {
     return (
 		<Layout>
 			<Head content="Edit Post" />
-
+			<div class="edit-delete">
+			<h1><Link href= "/employes-admin"><a><ArrowLeft/></a></Link>Rediger Ansatt</h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{updated && <div className="success">The post was updated</div>}
 
 				<fieldset disabled={updatingPost}>
-					<div>
+					<div class="form-group">
 						<input name="title" defaultValue={post.title.rendered} placeholder="Title" {...register('title', { required: true })} />
-					
 					</div>
 
-					<div>
+					<div class="form-group">
 						<input name="content" defaultValue={post.content.rendered} placeholder="Content" {...register('content', { required: true })} />
 					</div>
 
-					<button>Update</button>
+					<button>Update</button>           
+					<button type="button" className="delete" onClick={handleDelete}>
+                    {error ? "Error" : "Delete"}
+                    </button>
+
 
                    
 				</fieldset>
 			</form>
-            <button type="button" className="delete" onClick={handleDelete}>
-                    {error ? "Error" : "Delete"}
-                    </button>
+			</div>
 		</Layout>
 	);
 }

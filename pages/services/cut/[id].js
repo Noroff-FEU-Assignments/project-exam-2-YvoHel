@@ -2,13 +2,22 @@ import Layout from "../../../components/layout/_layout";
 import Head from "../../../components/layout/_head";
 import { BASE_URL_KLIPP } from "../../../constants/api";
 import { BASE_URL_POST } from "../../../constants/api";
+import Link from "next/link";
 
 
 export default function Cut({ cut}) {
     return (
      <Layout>
       <Head title={cut.title.rendered} />
-      <h1>{cut.title.rendered}</h1>
+      <div class="service-background">
+      <div class="service-info">
+      <h2>{cut.title.rendered}</h2>
+      <p>{cut.excerpt.rendered}</p>
+      <Link href="/services"><button >Lukk </button></Link>
+      </div>
+      </div>
+      
+
      </Layout>
     );
    }
@@ -17,10 +26,7 @@ export default function Cut({ cut}) {
   
      const response = await fetch(BASE_URL_KLIPP);
      const cuts = await response.json()
-     
-     console.log(cuts);
-   
-  
+
      const paths = cuts.map((cut) => ({
       params: { id: cut.id.toString()},
      }));
@@ -37,6 +43,7 @@ export async function getStaticProps({ params }) {
    
     const res = await fetch(`https://hairways.yvonnehelander.info/wp-json/wp/v2/posts/${params.id}`)
         const cut = await res.json()
+    
    
     return {
      props: { cut:cut },

@@ -1,0 +1,63 @@
+@import '/styles/scss/abstracts/variables';
+
+.services-headline{
+    text-align: center;
+    margin: 1rem 0 2rem;
+
+    a{
+        color:$primary-color;
+    }
+}
+
+.service-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    max-width: 1800px;
+    margin: auto;
+}
+
+.edit {
+    max-width:500px;
+    width: 90%;
+    margin:0 auto 1rem;
+
+    h2{
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+a{
+        color: $primary-color;
+        margin:10px 0;
+    }
+}
+
+
+
+
+.edit-card{
+    border: solid 1px $primary-color;
+    padding: 5px 15px 0 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    a{
+        text-decoration: none;
+    }
+
+    p{
+        font-size: 1rem;
+        margin:5px;
+    }
+
+    h3{
+        margin:5px;
+        font-size: 1rem;
+    }
+
+
+}

@@ -3,6 +3,9 @@ import Layout from "../components/layout/_layout";
 import axios from "axios";
 import Link from "next/link";
 import {BASE_URL_BEHANDLING, BASE_URL_FARGE, BASE_URL_KLIPP } from "../constants/api";
+import Pen from "../components/icons/_pen-icon";
+import AddIcon from "../components/icons/_add-icon";
+import ArrowLeft from "../components/icons/_arrow-left";
 
 export default function Servises(props) {
  
@@ -10,28 +13,40 @@ export default function Servises(props) {
 
   return (
     <Layout>
-      <Head title="Next Intro" />
-      <Link href= "/add/addCut"><a>Add Cut</a></Link>
+      <Head title="Behandlinger" />
+      <h1 class="services-headline"><Link href= "/admin"><a><ArrowLeft/></a></Link> Behandlinger</h1>
+      <div className="service-container">
+      <div className="edit">
+      <h2>Klipp</h2>
+      <Link href= "/add/addCut"><a>Add Cut <AddIcon/></a></Link>
       {props.cut.map((cut) => {
-        return <a key={cut.id} href={`editPage/${cut.id}`}>
-          {cut.title.rendered}{cut.slug}<button>Edit</button>
-          </a>;
-      })}
-      <Link href= "/add/addTreatment"><a>Add Treatment</a></Link>
-           {props.treat.map((treat) => {
-        return <a key={treat.id} href={`editPage/${treat.id}`}>
-          {treat.title.rendered}{treat.slug}<button>Edit</button>
-          </a>;
-      })}
-      <div>
-      <Link href= "/add/addColor"><a>Add Color</a></Link>
-      {props.color.map((color) => {
-        return <h2 key={color.id}> {color.title.rendered}{color.id} 
-          <a href={`editPage/${color.id}`}><button>Edit</button></a>
-          </h2>
-          ;
+        return <a key={cut.id} href={`editPage/${cut.id}`} class="edit-card"><h3>{cut.title.rendered}
+        </h3><p><Pen/></p>
+        </a>
       })}
       </div>
+
+      <div className="edit">
+     <h2>Farge</h2>
+      <Link href= "/add/addColor"><a>Add Color<AddIcon/></a></Link>
+      {props.color.map((color) => {
+        return <a key={color.id} href={`editPage/${color.id}`} class="edit-card"><h3>{color.title.rendered}
+        </h3><p><Pen/></p>
+        </a>
+      })}
+      </div>
+
+      <div className="edit">
+      <h2>Behandlinger</h2>
+      <Link href= "/add/addTreatment"><a>Add Treatment <AddIcon/></a></Link>
+      {props.treat.map((treat) => {
+        return <a key={treat.id} href={`editPage/${treat.id}`} class="edit-card"><h3>{treat.title.rendered}
+        </h3><p><Pen/></p>
+        </a>
+      })}
+      </div>
+      </div>
+      
     </Layout>
   );
 }
