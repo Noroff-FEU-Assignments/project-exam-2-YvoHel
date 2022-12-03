@@ -7,8 +7,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useAxios from "../../hooks/_useAxios";
 
-
-
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
 });
@@ -31,12 +29,10 @@ export default function AddColor() {
 		data.status = "publish";
 
 		console.log(data);
-		
 
 		try {
 			const response = await http.post("/wp/v2/posts?categories=5", data);
 			console.log("response", response.data);
-			
 		} catch (error) {
 			console.log("error", error);
 			setServerError(error.toString());
@@ -47,23 +43,31 @@ export default function AddColor() {
 
 	return (
 		<Layout>
-		<Head/>
-		<div class="edit-delete">
-		<h1>Legg til Farge behandling</h1>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<fieldset disabled={submitting}>
-					<div class="form-group">
-						<input name="title" placeholder="Title" {...register('title', { required: true })} />
-					</div>
+			<Head />
+			<div class="edit-delete">
+				<h1>Legg til Farge behandling</h1>
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<fieldset disabled={submitting}>
+						<div class="form-group">
+							<input
+								name="title"
+								placeholder="Title"
+								{...register("title", { required: true })}
+							/>
+						</div>
 
-					<div class="form-group">
-						<textarea name="content" placeholder="Content" {...register('content', { required: true })} />
-					</div>
+						<div class="form-group">
+							<textarea
+								name="content"
+								placeholder="Content"
+								{...register("content", { required: true })}
+							/>
+						</div>
 
-					<button>{submitting ? "Legger til..." : "Legg til"}</button>
-				</fieldset>
-			</form>
+						<button>{submitting ? "Legger til..." : "Legg til"}</button>
+					</fieldset>
+				</form>
 			</div>
 		</Layout>
 	);
-    }
+}

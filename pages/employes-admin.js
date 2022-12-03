@@ -7,45 +7,57 @@ import Pen from "../components/icons/_pen-icon";
 import AddIcon from "../components/icons/_add-icon";
 import ArrowLeft from "../components/icons/_arrow-left";
 
-
 export default function EmployesAdmin(props) {
- return (
-   <Layout>
-   <Head>
-   </Head>
-   <title>Admin</title>
-   <div className="edit">
-   <h2><Link href= "/admin"><a><ArrowLeft/></a></Link> Ansatte</h2>
-   <Link href= "/add/addEmploye"><a>Legg til ansatt<AddIcon/></a></Link>
-    {props.employes.map((employe) => {
-        return <a key={employe.id} href={`editPage/${employe.id}`} class="edit-card">
-          <h3>{employe.title.rendered}</h3> <p><Pen/></p>
-          </a>;
-      })}
-      </div>
-   </Layout>
-  
- );
+	return (
+		<Layout>
+			<Head></Head>
+			<title>Admin</title>
+			<div className="edit">
+				<h2>
+					<Link href="/admin">
+						<a>
+							<ArrowLeft />
+						</a>
+					</Link>{" "}
+					Ansatte
+				</h2>
+				<Link href="/add/addEmploye">
+					<a>
+						Legg til ansatt
+						<AddIcon />
+					</a>
+				</Link>
+				{props.employes.map((employe) => {
+					return (
+						<a key={employe.id}
+							href={`editPage/${employe.id}`}
+							className="edit-card">
+							<h3>{employe.title.rendered}</h3>{" "}
+							<p><Pen /></p>
+						</a>
+					);
+				})}
+			</div>
+		</Layout>
+	);
 }
 
 export async function getStaticProps() {
+	let employes = [];
 
-  let employes = [];
+	try {
+		const response = await axios.get(BASE_URL_ANSATTE);
 
-  try {
-    const response = await axios.get(BASE_URL_ANSATTE);
-   
-    console.log(response.data);
- 
-    employes = response.data;
-  } catch (error) {
-    console.log(error);
-  }
+		console.log(response.data);
 
+		employes = response.data;
+	} catch (error) {
+		console.log(error);
+	}
 
-  return {
-    props: {
-      employes: employes,
-    },
-  };
+	return {
+		props: {
+			employes: employes,
+		},
+	};
 }

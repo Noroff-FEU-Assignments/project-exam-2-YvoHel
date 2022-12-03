@@ -1,40 +1,47 @@
 import Layout from "../../../components/layout/_layout";
 import Head from "../../../components/layout/_head";
 import { BASE_URL_FARGE } from "../../../constants/api";
+import Link from "next/link";
 
+export default function Color({ color }) {
+	return (
+		<Layout>
+			<Head title={color.title.rendered} />
+			<div class="service-background">
+				<div class="service-info">
+					<h2>{color.title.rendered}</h2>
+					<p>{color.excerpt.rendered}</p>
+					<Link href="/services">
+						<button>Lukk </button>
+					</Link>
+				</div>
+			</div>
+		</Layout>
+	);
+}
 
-export default function Color({color}) {
-    return (
-      <h1>{color.title.rendered}</h1>
-    );
-   }
-   
-   export async function getStaticPaths() {
-  
-     const response = await fetch(BASE_URL_FARGE);
-     const colors = await response.json()
-     
-     console.log(colors);
-   
-  
-     const paths = colors.map((color) => ({
-      params: { id: color.id.toString()},
-     }));
-   
-     console.log(paths);
+export async function getStaticPaths() {
+	const response = await fetch(BASE_URL_FARGE);
+	const colors = await response.json();
 
-    return { paths, fallback: false }
-   
+	console.log(colors);
 
+	const paths = colors.map((color) => ({
+		params: { id: color.id.toString() },
+	}));
 
+	console.log(paths);
+
+	return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-   
-    const res = await fetch(`https://hairways.yvonnehelander.info/wp-json/wp/v2/posts/${params.id}`)
-        const color = await res.json()
-   
-    return {
-     props: { color:color },
-    };
-   }
+	const res = await fetch(
+		`https://hairways.yvonnehelander.info/wp-json/wp/v2/posts/${params.id}`
+	);
+	const color = await res.json();
+
+	return {
+		props: { color: color },
+	};
+}
