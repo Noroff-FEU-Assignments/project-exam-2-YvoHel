@@ -1,19 +1,9 @@
-#navbar-admin, #navbarNav-admin{
-    flex-direction: column !important;
+.navbar-toggler{
+    margin:auto;
 }
 
-#navbar-admin{
-    align-items: unset !important;
-    margin-left: 2rem;
-    max-width: 35rem;
-}
-
-#navbarNav-admin{
-    padding-top: 10rem;
-
-    li{
-        padding: 1.5rem 0;
-    }
+.nav-admin img{
+    padding: 2rem 2rem 0 !important;
 }
 
 

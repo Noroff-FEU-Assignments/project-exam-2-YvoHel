@@ -16,13 +16,28 @@ export default function Layout({children}) {
  return (
   <>
     {auth ? (
-        <nav class="nav flex-column" role="navigation">
-          <Image src= "/logo_white.png" alt="My image"/>
-          <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" ><LoginIcon/></a></Link>
-          <Link href="/messages-admin"><a class="nav-link" id="nav-link">Messages</a></Link>
-          <Link href="/services-admin"><a class="nav-link" id="nav-link">Services</a></Link>
-          <Link href="/employes-admin"><a class="nav-link" id="nav-link">Employes</a></Link>
-        </nav>
+      <div class="nav-admin">
+      <Image src= "/logo_white.png" width="400" height="100" alt="My image"/>
+      <nav class="navbar navbar-expand-lg bg-light" role="navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav flex-column">
+                       <li class="nav-item"> 
+                         <Link href="/services-admin"><a class="nav-link" id="nav-link">Services</a></Link>
+                       </li>
+                       <li class="nav-item">
+                         <Link href="/employes-admin"><a class="nav-link" id="nav-link">Employes</a></Link>
+                       </li>
+                       <li class="nav-item" id="login-icon">
+                       <Link href="/"><a onClick={logout} class="nav-link" id="nav-link" ><LoginIcon/></a></Link>
+                       </li>
+                     </ul>
+                  
+      </div>
+    </nav>
+     </div>
 			) : (
   <nav class="navbar navbar-expand-lg bg-light" role="navigation">
   <div class="container-fluid">
@@ -47,7 +62,7 @@ export default function Layout({children}) {
                      <Link href="/contact"><a id="nav-link">Kontakt</a></Link>
                    </li>
                    <li class="nav-item" id="login-icon">
-                     <Link href="/login"><a id="nav-link" class="login-icon" ><LoginIcon/></a></Link>
+                     <Link href="/login"><a id="nav-link" class="login-icon"><LoginIcon/></a></Link>
                    </li>
                  </ul>
                </div>

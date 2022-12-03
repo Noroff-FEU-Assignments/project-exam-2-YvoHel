@@ -61,12 +61,12 @@ export default function LoginForm() {
             <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset disabled={submitting}>
                 <div className="form-group">
-                    <label>Username</label>
-                    <input name="username" placeholder="Username" {...register('username', { required: true })} />
+                    <label for="InputUsername">Username</label>
+                    <input type="username" class="form-control" id="InputUsername" aria-describedby="emailHelp" name="username" placeholder="Username" {...register('username', { required: true })} />
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
-                    <input name="password" placeholder="Password" {...register('password', { required: true })} type="password" />
+                    <label for="InputPassword">Password</label>
+                    <input class="form-control" id="InputPassword" name="password" placeholder="Password" {...register('password', { required: true })} type="password" />
                         </div>
                         <button>{submitting ? "Loggin in..." : "Login" }</button>
                 </fieldset>
