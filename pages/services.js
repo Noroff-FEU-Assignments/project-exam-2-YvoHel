@@ -25,6 +25,7 @@ export default function Servises(props) {
 					</p>
 				</div>
 				<div className="service-list">
+				<input class="search" placeholder="Filter..." />
 					<div className="cut-container">
 						<h2>Klipp</h2>
 						{props.cut.map((cut) => {
