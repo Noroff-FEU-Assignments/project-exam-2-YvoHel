@@ -1,11 +1,11 @@
 import Head from "../../components/layout/Head";
 import Layout from "../../components/layout/Layout";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useAxios from "../../hooks/useAxios";
+import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -15,7 +15,7 @@ export default function AddTreatment() {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
 
-	const history = useHistory();
+	const router = useRouter();
 	const http = useAxios();
 
 	const { register, handleSubmit, errors } = useForm({
@@ -33,6 +33,7 @@ export default function AddTreatment() {
 		try {
 			const response = await http.post("/wp/v2/posts?categories=6", data);
 			console.log("response", response.data);
+			router.push("/services-admin");
 		} catch (error) {
 			console.log("error", error);
 			setServerError(error.toString());

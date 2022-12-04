@@ -80,12 +80,14 @@ export default function EditPost(props) {
 	if (fetchError) return <div>Error loading post</div>;
 
 	async function handleDelete() {
-		try {
-			await http.delete(url);
-		} catch (error) {
-			setError(error);
+		 try {
+		  await http.delete(url);
+
+		 } catch (error) {
+		  setError(error);
+		 }
 		}
-	}
+	   
 
 	return (
 		<Layout>
@@ -120,14 +122,15 @@ export default function EditPost(props) {
 								{...register("content", { required: true })}
 							/>
 						</div>
-
 						<button>Update</button>
-						<button type="button" className="delete" onClick={handleDelete}>
-							{error ? "Error" : "Delete"}
-						</button>
 					</fieldset>
 				</form>
+				<button type="button" className="delete" onClick={handleDelete}>
+			{error ? "Error" : "Delete"}
+		</button>
 			</div>
 		</Layout>
 	);
 }
+
+

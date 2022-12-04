@@ -4,9 +4,11 @@
 	text-align: center;
 	margin: 1rem 0 2rem;
 
-	a {
+	svg{
+		max-height: 30px;
 		color: $primary-color;
 	}
+
 }
 
 .service-container {
@@ -16,6 +18,10 @@
 	justify-content: space-evenly;
 	max-width: 1800px;
 	margin: auto;
+
+	svg{
+		max-height: 15px;
+	}
 }
 
 .edit {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import LoginIcon from "../icons/LoginIcon";
+import LoginIcon from "../icons/LoginIcon"
 
 export default function Layout({ children }) {
 	const [auth, setAuth] = useContext(AuthContext);
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
 								</li>
 								<li className="nav-item" id="login-icon">
 									<Link legacyBehavior href="/">
-										<a onClick={logout} className="nav-link" id="nav-link">
+										<a onClick={logout} id="nav-link" className="login-icon">
 											<LoginIcon />
 										</a>
 									</Link>

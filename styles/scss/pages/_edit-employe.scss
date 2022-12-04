@@ -3,6 +3,11 @@
 .edit-delete {
 	display: flex;
 	flex-direction: column;
+	background-color: $primary-color;
+	color: $secondary-color;
+	padding: 3rem 5rem 5rem;
+	max-width: 500px;
+	margin: auto;
 
 	form {
 		margin: auto;
