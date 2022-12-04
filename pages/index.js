@@ -32,6 +32,7 @@ export default function Home() {
 					<button className="banner-button">Bestill time</button>
 				</Link>
 			</div>
+			<div className="openinghours-container">
             <div className="openinghours">
                 <h2 >Åpningstider</h2>
                 <pre>
@@ -50,6 +51,7 @@ export default function Home() {
 					loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
+			</div>
 			</div>
 		</Layout>
 	);

@@ -19,7 +19,12 @@ export default function useLocalStorage(key, initialValue) {
 
 			setStoredValue(valueToStore);
 
-			window.localStorage.setItem(key, JSON.stringify(valueToStore));
+			if (typeof window !== "undefined") {
+
+				localStorage.setItem(key, JSON.stringify(valueToStore))
+				
+				}
+
 		} catch (error) {
 			console.log(error);
 		}

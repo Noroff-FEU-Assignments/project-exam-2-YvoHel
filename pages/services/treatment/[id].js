@@ -3,7 +3,7 @@ import Head from "../../../components/layout/Head";
 import { BASE_URL_BEHANDLING} from "../../../constants/api";
 import Link from "next/link";
 
-export default function Treatment({ treatment }) {
+export default function Treatment({ treatments }) {
 	return (
 		<Layout>
 			<Head title={treatments.title.rendered} />
