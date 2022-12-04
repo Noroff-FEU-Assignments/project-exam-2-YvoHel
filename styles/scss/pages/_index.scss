@@ -60,7 +60,7 @@
 	text-transform: uppercase;
 }
 
-.openinghours-container{
+.openinghours-container {
 	background-color: $primary-color;
 	display: flex;
 	flex-direction: column;
@@ -74,6 +74,10 @@
 	height: 250px;
 	margin: auto;
 	padding-bottom: 2rem;
+}
+
+.map-container{
+	margin: 1rem auto;
 }
 
 .openinghours {
