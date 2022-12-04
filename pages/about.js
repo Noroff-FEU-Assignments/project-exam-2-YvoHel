@@ -35,7 +35,6 @@ export default function About(props) {
           </div>;
           })}
         </div>
-        <h2>Kundeomtaler</h2>
       </div>
     </Layout>
   );

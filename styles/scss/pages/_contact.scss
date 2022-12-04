@@ -50,7 +50,8 @@ button {
 	.contact {
 		flex-direction: row;
 		padding: 5rem 0;
-		margin: 0 1rem;
+		max-width: 1200px;
+		margin: auto;
 	}
 
 	form{

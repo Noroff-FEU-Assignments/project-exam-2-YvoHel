@@ -3,12 +3,12 @@
 .tlf-nubmer {
 	width: 95%;
 	text-align: center;
-	border-bottom: 2px solid #000;
+	border-bottom: 2px solid $primary-color;
 	line-height: 0.1em;
 	margin: 1rem auto 3rem;
 
 	span {
-		background: #fff;
+		background: #f8f9fa;
 		padding: 0 10px;
 	}
 }

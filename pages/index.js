@@ -8,7 +8,7 @@ export default function Home() {
 		<Layout>
 			<Head />
 			<h2 className="tlf-nubmer">
-				<span>Ring: 55 44 33 11</span>
+				<span>Ring: 98 10 00 11</span>
 			</h2>
 			<div className="banner-image">
 				<Image
