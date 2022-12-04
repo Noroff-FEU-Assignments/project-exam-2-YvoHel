@@ -1,21 +1,11 @@
+import ActiveLink from "./ActiveLink";
 import Link from "next/link";
 import Image from "next/image";
-import { useContext } from "react";
-import AuthContext from "../../context/AuthContext";
-import LoginIcon from "../icons/LoginIcon"
-import Nav from "./Nav";
-import ActiveLink from "./ActiveLink";
+import LoginIcon from "../icons/LoginIcon";
 
-export default function Layout({ children }) {
-	const [auth, setAuth] = useContext(AuthContext);
+const Nav =() =>(
 
-	function logout() {
-		setAuth(null);
-	}
-
-
-	return (
-		<>
+    <>
     {auth ? (
         <nav className="navbar navbar-expand-lg bg-light" role="navigation">
             <div className="container-fluid">
@@ -87,7 +77,7 @@ export default function Layout({ children }) {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <ActiveLink activeClassName="active"legacyBehavior href="/">
-                                <a  id="nav-link" aria-current="page">
+                                <a className="activ" id="nav-link" aria-current="page">
                                     Home
                                 </a>
                             </ActiveLink>
@@ -122,13 +112,7 @@ export default function Layout({ children }) {
             </div>
         </nav>
     )}
+    </>
 )
 
-			<div>{children}</div>
-			<footer>
-				<p>© 2022 Hairways AS</p>
-				<p>Laget av Yvonne Helander</p>
-			</footer>
-		</>
-	);
-}
+export default Nav
