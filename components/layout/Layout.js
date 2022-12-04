@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import LoginIcon from "../icons/LoginIcon"
-import Nav from "./Nav";
 import ActiveLink from "./ActiveLink";
 
 export default function Layout({ children }) {
@@ -92,7 +91,7 @@ export default function Layout({ children }) {
                             </ActiveLink>
                         </li>
                         <li className="nav-item">
-                                <a id="nav-link">Bestill time</a>
+                                <a id="nav-link" href ="https://www.ledigtime.no/hairways/step1">Bestill time</a>
                         </li>
                         <li className="nav-item">
                             <ActiveLink activeClassName="active" legacyBehavior href="/services">
