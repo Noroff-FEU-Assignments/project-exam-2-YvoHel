@@ -21,7 +21,7 @@ export default function Treatment({ treatment }) {
 }
 
 export async function getStaticPaths() {
-	const response = await fetch(BASE_URL_FARGE);
+	const response = await fetch(BASE_URL_BEHANDLING);
 	const treatments = await response.json();
 
 	console.log(treatments);
