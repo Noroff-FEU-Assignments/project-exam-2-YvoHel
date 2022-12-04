@@ -33,7 +33,7 @@ export default function AddEmploye() {
 		try {
 			const response = await http.post("/wp/v2/posts?categories=3", data);
 			console.log("response", response.data);
-			router.push("/services-admin");
+			router.push("/employes-admin");
 		} catch (error) {
 			console.log("error", error);
 			setServerError(error.toString());

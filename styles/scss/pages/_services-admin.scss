@@ -38,6 +38,11 @@
 		color: $primary-color;
 		margin: 10px 0;
 	}
+
+	svg{
+		max-height: 25px;
+		color: $primary-color;
+	}
 }
 
 .edit-card {

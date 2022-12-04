@@ -23,8 +23,7 @@ export default function EmployesAdmin(props) {
 				</h2>
 				<Link Link legacyBehavior href="/add/addEmploye">
 					<a>
-						Legg til ansatt
-						<AddIcon />
+						Legg til ansatt  <AddIcon />
 					</a>
 				</Link>
 				{props.employes.map((employe) => {

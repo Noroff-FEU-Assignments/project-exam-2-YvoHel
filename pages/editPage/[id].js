@@ -7,6 +7,7 @@ import useAxios from "../../hooks/useAxios";
 import Head from "../../components/layout/Head";
 import Layout from "../../components/layout/Layout";
 import ArrowLeft from "../../components/icons/ArrowLeft";
+import { Router, useRouter } from "next/router";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -32,6 +33,8 @@ export default function EditPost(props) {
 	});
 
 	const http = useAxios();
+	const router = useRouter();
+
 
 	const url = `wp/v2/posts/${props.id}`;
 
@@ -82,7 +85,7 @@ export default function EditPost(props) {
 	async function handleDelete() {
 		 try {
 		  await http.delete(url);
-
+		  router.push("/admin");
 		 } catch (error) {
 		  setError(error);
 		 }
@@ -99,7 +102,6 @@ export default function EditPost(props) {
 							<ArrowLeft />
 						</a>
 					</Link>
-					Rediger Ansatt
 				</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					{updated && <div className="success">The post was updated</div>}
@@ -123,11 +125,11 @@ export default function EditPost(props) {
 							/>
 						</div>
 						<button>Update</button>
+						<button type="button" className="delete" onClick={handleDelete}>
+		              	{error ? "Error" : "Delete"}
+		                </button>
 					</fieldset>
 				</form>
-				<button type="button" className="delete" onClick={handleDelete}>
-			{error ? "Error" : "Delete"}
-		</button>
 			</div>
 		</Layout>
 	);

@@ -90,9 +90,7 @@ export default function Layout({ children }) {
 									</Link>
 								</li>
 								<li className="nav-item">
-									<Link legacyBehavior href="www.hairways.no">
 										<a id="nav-link">Bestill time</a>
-									</Link>
 								</li>
 								<li className="nav-item">
 									<Link legacyBehavior href="/services">
