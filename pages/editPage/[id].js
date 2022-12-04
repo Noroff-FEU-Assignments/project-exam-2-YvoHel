@@ -70,6 +70,7 @@ export default function EditPost(props) {
 			const response = await http.put(url, data);
 			console.log("response", response.data);
 			setUpdated(true);
+			router.push("/admin");
 		} catch (error) {
 			console.log("error", error);
 			setUpdateError(error.toString());

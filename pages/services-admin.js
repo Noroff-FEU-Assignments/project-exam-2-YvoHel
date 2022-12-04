@@ -7,9 +7,9 @@ import {
 	BASE_URL_FARGE,
 	BASE_URL_KLIPP,
 } from "../constants/api";
-import Pen from "../components/icons/PenIcon";
 import AddIcon from "../components/icons/AddIcon";
 import ArrowLeft from "../components/icons/ArrowLeft";
+import Pen from "../components/icons/PenIcon"
 
 export default function Servises(props) {
 	console.log(props);
@@ -36,10 +36,7 @@ export default function Servises(props) {
 					{props.cut.map((cut) => {
 						return (
 							<a key={cut.id} href={`editPage/${cut.id}`} className="edit-card">
-								<h3>{cut.title.rendered}</h3>
-								<p>
-									<Pen />
-								</p>
+								<h3>{cut.title.rendered}</h3><Pen />
 							</a>
 						);
 					})}
@@ -57,9 +54,7 @@ export default function Servises(props) {
 						return (
 							<a key={color.id} href={`editPage/${color.id}`} className="edit-card">
 								<h3>{color.title.rendered}</h3>
-								<p>
-									<Pen />
-								</p>
+								<Pen />
 							</a>
 						);
 					})}
@@ -76,9 +71,7 @@ export default function Servises(props) {
 						return (
 							<a key={treat.id} href={`editPage/${treat.id}`} className="edit-card">
 								<h3>{treat.title.rendered}</h3>
-								<p>
-									<Pen />
-								</p>
+								<Pen />
 							</a>
 						);
 					})}
