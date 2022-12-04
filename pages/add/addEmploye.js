@@ -1,5 +1,5 @@
-import Layout from "../../components/layout/_layout";
-import Head from "../../components/layout/_head";
+import Layout from "../../components/layout/Layout";
+import Head from "../../components/layout/Head";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -44,11 +44,11 @@ export default function AddEmploye() {
 	return (
 		<Layout>
 			<Head />
-			<div class="edit-delete">
+			<div className="edit-delete">
 				<h1>Legg til Ansatt</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<fieldset disabled={submitting}>
-						<div class="form-group">
+						<div className="form-group">
 							<input
 								name="title"
 								placeholder="Title"
@@ -56,7 +56,7 @@ export default function AddEmploye() {
 							/>
 						</div>
 
-						<div class="form-group">
+						<div className="form-group">
 							<textarea
 								name="content"
 								placeholder="Content"

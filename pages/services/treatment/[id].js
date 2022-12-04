@@ -1,17 +1,17 @@
-import Layout from "../../../components/layout/_layout";
-import Head from "../../../components/layout/_head";
-import { BASE_URL_BEHANDLING, BASE_URL_FARGE } from "../../../constants/api";
+import Layout from "../../../components/layout/Layout";
+import Head from "../../../components/layout/Head";
+import { BASE_URL_BEHANDLING} from "../../../constants/api";
 import Link from "next/link";
 
 export default function Treatment({ treatment }) {
 	return (
 		<Layout>
 			<Head title={treatments.title.rendered} />
-			<div class="service-background">
-				<div class="service-info">
+			<div className="service-background">
+				<div className="service-info">
 					<h2>{treatments.title.rendered}</h2>
 					<p>{treatments.excerpt.rendered}</p>
-					<Link href="/services">
+					<Link Link legacyBehavior href="/services">
 						<button>Lukk </button>
 					</Link>
 				</div>

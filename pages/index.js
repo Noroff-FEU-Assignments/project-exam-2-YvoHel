@@ -1,5 +1,5 @@
-import Layout from "../components/layout/_layout";
-import Head from "../components/layout/_head";
+import Layout from "../components/layout/Layout";
+import Head from "../components/layout/Head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,7 +28,7 @@ export default function Home() {
 						storsenter.
 					</p>
 				</div>
-				<Link href="www.hairways.no">
+				<Link legacyBehavior href="www.hairways.no">
 					<button className="banner-button">Bestill time</button>
 				</Link>
 			</div>

@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 import axios from "axios";
 import { BASE_URL_ANSATTE} from "../constants/api";
 import Image from "next/image";

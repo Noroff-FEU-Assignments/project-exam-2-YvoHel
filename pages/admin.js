@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 
 
 export default function Admin(props) {

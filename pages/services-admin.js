@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 import axios from "axios";
 import Link from "next/link";
 import {
@@ -7,9 +7,9 @@ import {
 	BASE_URL_FARGE,
 	BASE_URL_KLIPP,
 } from "../constants/api";
-import Pen from "../components/icons/_pen-icon";
-import AddIcon from "../components/icons/_add-icon";
-import ArrowLeft from "../components/icons/_arrow-left";
+import Pen from "../components/icons/PenIcon";
+import AddIcon from "../components/icons/AddIcon";
+import ArrowLeft from "../components/icons/ArrowLeft";
 
 export default function Servises(props) {
 	console.log(props);
@@ -18,7 +18,7 @@ export default function Servises(props) {
 		<Layout>
 			<Head title="Behandlinger" />
 			<h1 className="services-headline">
-				<Link href="/admin">
+				<Link Link legacyBehavior href="/admin">
 					<a>
 						<ArrowLeft />
 					</a>
@@ -28,7 +28,7 @@ export default function Servises(props) {
 			<div className="service-container">
 				<div className="edit">
 					<h2>Klipp</h2>
-					<Link href="/add/addCut">
+					<Link Link legacyBehavior href="/add/addCut">
 						<a>
 							Add Cut <AddIcon />
 						</a>
@@ -47,7 +47,7 @@ export default function Servises(props) {
 
 				<div className="edit">
 					<h2>Farge</h2>
-					<Link href="/add/addColor">
+					<Link Link legacyBehavior href="/add/addColor">
 						<a>
 							Add Color
 							<AddIcon />
@@ -67,7 +67,7 @@ export default function Servises(props) {
 
 				<div className="edit">
 					<h2>Behandlinger</h2>
-					<Link href="/add/addTreatment">
+					<Link Link legacyBehavior href="/add/addTreatment">
 						<a>
 							Add Treatment <AddIcon />
 						</a>

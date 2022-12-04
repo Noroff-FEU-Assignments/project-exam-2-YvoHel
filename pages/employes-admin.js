@@ -1,11 +1,11 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 import axios from "axios";
 import Link from "next/link";
 import { BASE_URL_ANSATTE } from "../constants/api";
-import Pen from "../components/icons/_pen-icon";
-import AddIcon from "../components/icons/_add-icon";
-import ArrowLeft from "../components/icons/_arrow-left";
+import Pen from "../components/icons/PenIcon";
+import AddIcon from "../components/icons/AddIcon";
+import ArrowLeft from "../components/icons/ArrowLeft";
 
 export default function EmployesAdmin(props) {
 	return (
@@ -14,14 +14,14 @@ export default function EmployesAdmin(props) {
 			<title>Admin</title>
 			<div className="edit">
 				<h2>
-					<Link href="/admin">
+					<Link Link legacyBehavior href="/admin">
 						<a>
 							<ArrowLeft />
 						</a>
 					</Link>{" "}
 					Ansatte
 				</h2>
-				<Link href="/add/addEmploye">
+				<Link Link legacyBehavior href="/add/addEmploye">
 					<a>
 						Legg til ansatt
 						<AddIcon />

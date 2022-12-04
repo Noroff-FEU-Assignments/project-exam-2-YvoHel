@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 import axios from "axios";
 import {
 	BASE_URL_BEHANDLING,
 	BASE_URL_FARGE,
 	BASE_URL_KLIPP,
 } from "../constants/api";
-import FaInfo from "../components/icons/_info-icon";
+import FaInfo from "../components/icons/InfoIcon";
 
 export default function Servises(props) {
 	console.log(props);
@@ -25,7 +25,6 @@ export default function Servises(props) {
 					</p>
 				</div>
 				<div className="service-list">
-				<input class="search" placeholder="Filter..." />
 					<div className="cut-container">
 						<h2>Klipp</h2>
 						{props.cut.map((cut) => {

@@ -1,5 +1,5 @@
-import Layout from "../../../components/layout/_layout";
-import Head from "../../../components/layout/_head";
+import Layout from "../../../components/layout/Layout";
+import Head from "../../../components/layout/Layout";
 import { BASE_URL_FARGE } from "../../../constants/api";
 import Link from "next/link";
 
@@ -7,8 +7,8 @@ export default function Color({ color }) {
 	return (
 		<Layout>
 			<Head title={color.title.rendered} />
-			<div class="service-background">
-				<div class="service-info">
+			<div className="service-background">
+				<div className="service-info">
 					<h2>{color.title.rendered}</h2>
 					<p>{color.excerpt.rendered}</p>
 					<Link href="/services">

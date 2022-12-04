@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import useAxios from "../../hooks/useAxios";
-import Head from "../../components/layout/_head";
-import Layout from "../../components/layout/_layout";
-import ArrowLeft from "../../components/icons/_arrow-left";
+import Head from "../../components/layout/Head";
+import Layout from "../../components/layout/Layout";
+import ArrowLeft from "../../components/icons/ArrowLeft";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -91,9 +90,9 @@ export default function EditPost(props) {
 	return (
 		<Layout>
 			<Head content="Edit Post" />
-			<div class="edit-delete">
+			<div className="edit-delete">
 				<h1>
-					<Link href="/employes-admin">
+					<Link legacyBehavior  href="/employes-admin">
 						<a>
 							<ArrowLeft />
 						</a>

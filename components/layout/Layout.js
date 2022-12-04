@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import LoginIcon from "../icons/_login-icon";
+import LoginIcon from "../icons/LoginIcon";
 
 export default function Layout({ children }) {
 	const [auth, setAuth] = useContext(AuthContext);
@@ -14,8 +14,8 @@ export default function Layout({ children }) {
 	return (
 		<>
 			{auth ? (
-				<nav class="navbar navbar-expand-lg bg-light" role="navigation">
-					<div class="container-fluid">
+				<nav className="navbar navbar-expand-lg bg-light" role="navigation">
+					<div className="container-fluid">
 						<Image
 							src="/logo_white.png"
 							width="400"
@@ -23,7 +23,7 @@ export default function Layout({ children }) {
 							alt="My image"
 						/>
 						<button
-							class="navbar-toggler"
+							className="navbar-toggler"
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#navbarNav"
@@ -31,27 +31,27 @@ export default function Layout({ children }) {
 							aria-expanded="false"
 							aria-label="Toggle navigation"
 						>
-							<span class="navbar-toggler-icon"></span>
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="nav-item">
-									<Link href="/services-admin">
-										<a class="nav-link" id="nav-link">
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="nav-item">
+									<Link legacyBehavior href="/services-admin">
+										<a className="nav-link" id="nav-link">
 											Services
 										</a>
 									</Link>
 								</li>
-								<li class="nav-item">
-									<Link href="/employes-admin">
-										<a class="nav-link" id="nav-link">
+								<li className="nav-item">
+									<Link legacyBehavior href="/employes-admin">
+										<a className="nav-link" id="nav-link">
 											Employes
 										</a>
 									</Link>
 								</li>
-								<li class="nav-item" id="login-icon">
-									<Link href="/">
-										<a onClick={logout} class="nav-link" id="nav-link">
+								<li className="nav-item" id="login-icon">
+									<Link legacyBehavior href="/">
+										<a onClick={logout} className="nav-link" id="nav-link">
 											<LoginIcon />
 										</a>
 									</Link>
@@ -61,8 +61,8 @@ export default function Layout({ children }) {
 					</div>
 				</nav>
 			) : (
-				<nav class="navbar navbar-expand-lg bg-light" role="navigation">
-					<div class="container-fluid">
+				<nav className="navbar navbar-expand-lg bg-light" role="navigation">
+					<div className="container-fluid">
 						<Image
 							src="/logo_white.png"
 							width="400"
@@ -70,7 +70,7 @@ export default function Layout({ children }) {
 							alt="My image"
 						/>
 						<button
-							class="navbar-toggler"
+							className="navbar-toggler"
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#navbarNav"
@@ -78,40 +78,40 @@ export default function Layout({ children }) {
 							aria-expanded="false"
 							aria-label="Toggle navigation"
 						>
-							<span class="navbar-toggler-icon"></span>
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="nav-item">
-									<Link href="/">
-										<a class="activ" id="nav-link" aria-current="page">
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="nav-item">
+									<Link legacyBehavior href="/">
+										<a className="activ" id="nav-link" aria-current="page">
 											Home
 										</a>
 									</Link>
 								</li>
-								<li class="nav-item">
-									<Link href="www.hairways.no">
+								<li className="nav-item">
+									<Link legacyBehavior href="www.hairways.no">
 										<a id="nav-link">Bestill time</a>
 									</Link>
 								</li>
-								<li class="nav-item">
-									<Link href="/services">
+								<li className="nav-item">
+									<Link legacyBehavior href="/services">
 										<a id="nav-link">Behandlinger</a>
 									</Link>
 								</li>
-								<li class="nav-item">
-									<Link href="/about">
+								<li className="nav-item">
+									<Link legacyBehavior href="/about">
 										<a id="nav-link">Om oss</a>
 									</Link>
 								</li>
-								<li class="nav-item">
-									<Link href="/contact">
+								<li className="nav-item">
+									<Link legacyBehavior href="/contact">
 										<a id="nav-link">Kontakt</a>
 									</Link>
 								</li>
-								<li class="nav-item" id="login-icon">
-									<Link href="/login">
-										<a id="nav-link" class="login-icon">
+								<li className="nav-item" id="login-icon">
+									<Link legacyBehavior href="/login">
+										<a id="nav-link" className="login-icon">
 											<LoginIcon />
 										</a>
 									</Link>

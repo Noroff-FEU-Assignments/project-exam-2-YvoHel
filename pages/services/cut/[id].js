@@ -1,18 +1,17 @@
-import Layout from "../../../components/layout/_layout";
-import Head from "../../../components/layout/_head";
+import Layout from "../../../components/layout/Layout";
+import Head from "../../../components/layout/Head";
 import { BASE_URL_KLIPP } from "../../../constants/api";
-import { BASE_URL_POST } from "../../../constants/api";
 import Link from "next/link";
 
 export default function Cut({ cut }) {
 	return (
 		<Layout>
 			<Head title={cut.title.rendered} />
-			<div class="service-background">
-				<div class="service-info">
+			<div className="service-background">
+				<div className="service-info">
 					<h2>{cut.title.rendered}</h2>
 					<p>{cut.excerpt.rendered}</p>
-					<Link href="/services">
+					<Link Link legacyBehavior href="/services">
 						<button>Lukk </button>
 					</Link>
 				</div>

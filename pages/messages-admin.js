@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Layout from "../components/layout/_layout";
+import Head from "../components/layout/Head"
+import Layout from "../components/layout/Layout";
 import axios from "axios";
 import Link from "next/link";
 import { BASE_URL_ANSATTE } from "../constants/api";
@@ -8,7 +8,7 @@ export default function EmployesAdmin(props) {
 	return (
 		<Layout>
 			<Head></Head>
-			<Link href="/add/addEmploye">
+			<Link Link legacyBehavior href="/add/addEmploye">
 				<a>Add post</a>
 			</Link>
 			<title>Admin</title>

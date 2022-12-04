@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Layout from "../components/layout/_layout";
-import LoginForm from "../components/form/_login-form";
+import Layout from "../components/layout/Layout";
+import LoginForm from "../components/form/LoginForm";
 
 export default function Login() {
 	return (
