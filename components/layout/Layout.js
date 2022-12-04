@@ -12,8 +12,7 @@ export default function Layout({ children }) {
 	function logout() {
 		setAuth(null);
 	}
-
-
+	
 	return (
 		<>
     {auth ? (
@@ -122,13 +121,12 @@ export default function Layout({ children }) {
             </div>
         </nav>
     )}
-)
-
-			<div>{children}</div>
-			<footer>
-				<p>© 2022 Hairways AS</p>
-				<p>Laget av Yvonne Helander</p>
-			</footer>
-		</>
+	
+	<div>{children}</div>
+	<footer>
+		<p>© 2022 Hairways AS</p>
+		<p>Laget av Yvonne Helander</p>
+	</footer>
+	</>
 	);
 }

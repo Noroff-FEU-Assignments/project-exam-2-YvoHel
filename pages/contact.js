@@ -3,6 +3,7 @@ import Layout from "../components/layout/Layout";
 import Phone from "../components/icons/PhoneIcon";
 import Mail from "../components/icons/MailIcon";
 import MapIcon from "../components/icons/MapIcon";
+import ContactForm from "../components/form/ContactForm";
 
 export default function Contact() {
 	return (
@@ -26,37 +27,7 @@ export default function Contact() {
 						<MapIcon /> Sartorveien 10, 5353 Straume
 					</p>
 				</div>
-				<form className="contact-form">
-					<h3>Send oss en melding</h3>
-					<div className="form-group">
-						<label for="exampleFormControlInput1">Navn</label>
-						<input
-							type="email"
-							className="form-control"
-							id="exampleFormControlInput1"
-							placeholder="Ditt navn"
-						/>
-					</div>
-					<div className="form-group">
-						<label for="exampleFormControlInput1">Email adresse</label>
-						<input
-							type="email"
-							className="form-control"
-							id="exampleFormControlInput1"
-							placeholder="name@example.com"
-						/>
-					</div>
-
-					<div className="form-group">
-						<label for="exampleFormControlTextarea1">Din melding</label>
-						<textarea
-							className="form-control"
-							id="exampleFormControlTextarea1"
-							rows="3"
-						></textarea>
-					</div>
-					<button>Send</button>
-				</form>
+				<ContactForm/>
 			</div>
 		</Layout>
 	);
