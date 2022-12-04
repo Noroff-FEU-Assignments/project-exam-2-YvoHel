@@ -3,15 +3,15 @@ import Head from "../../../components/layout/Head";
 import { BASE_URL_BEHANDLING} from "../../../constants/api";
 import Link from "next/link";
 
-export default function Treatment({ treatments }) {
+export default function Treatment({ treatment }) {
 	return (
 		<Layout>
-			<Head title={treatments.title.rendered} />
+			<Head title={treatment.title.rendered} />
 			<div className="service-background">
 				<div className="service-info">
-					<h2>{treatments.title.rendered}</h2>
-					<p>{treatments.excerpt.rendered}</p>
-					<Link Link legacyBehavior href="/services">
+					<h2>{treatment.title.rendered}</h2>
+					<p>{treatment.excerpt.rendered}</p>
+					<Link href="/services">
 						<button>Lukk </button>
 					</Link>
 				</div>
@@ -21,7 +21,7 @@ export default function Treatment({ treatments }) {
 }
 
 export async function getStaticPaths() {
-	const response = await fetch(BASE_URL_BEHANDLING);
+	const response = await fetch(BASE_URL_FARGE);
 	const treatments = await response.json();
 
 	console.log(treatments);
