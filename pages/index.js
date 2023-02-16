@@ -16,6 +16,7 @@ export default function Home() {
 					width="2000"
 					height="867"
 					alt="My image"
+					priority
 				/>
 				<div className="banner-text">
 					<h1>Hairways</h1>
