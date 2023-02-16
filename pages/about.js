@@ -12,7 +12,11 @@ export default function About(props) {
     <Layout>
       <Head title="Next Intro" />
       <div className="about">
-        <Image src ="/Hairdesser1.jpeg" width="2000" height="1333" alt="Image of hairways As locals"></Image>
+        <Image src ="/Hairdesser1.jpeg" 
+        width="2000" 
+        height="1333" 
+        alt="Image of hairways As locals"
+        priority></Image>
         <div className ="about-text">
           <h1>Her kan vi skrive litt om salongen</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing 
@@ -25,38 +29,7 @@ export default function About(props) {
               deserunt mollit anim id est laborum.
           </p>
         </div>
-        <h2>Våre ansatte</h2>
-        <div className="employes-container">
-          {props.employes.map((employe) => {
-          return <div className="employes" key={employe.id}>
-          <Image src ="/Portrait_Placeholder.png" width="600" height="600" alt="Image of a employe at hairways as"></Image>
-          <h3>{employe.title.rendered}</h3>
-          {employe.excerpt.rendered}
-          </div>;
-          })}
-        </div>
       </div>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-
-  let employes = [];
-
-  try {
-    const response = await axios.get(BASE_URL_ANSATTE);
-   
-    console.log(response.data);
- 
-    employes = response.data;
-  } catch (error) {
-    console.log(error);
-  }
-  
-  return {
-    props: {
-      employes: employes,
-    },
-  };
 }
