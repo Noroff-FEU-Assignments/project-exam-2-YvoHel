@@ -7,7 +7,7 @@ import useAxios from "../../hooks/useAxios";
 import Head from "../../components/layout/Head";
 import Layout from "../../components/layout/Layout";
 import ArrowLeft from "../../components/icons/ArrowLeft";
-import { Router, useRouter } from "next/router";
+import {useRouter } from "next/router";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
@@ -25,10 +25,10 @@ export default function EditPost(props) {
 	const [fetchingPost, setFetchingPost] = useState(true);
 	const [updatingPost, setUpdatingPost] = useState(false);
 	const [fetchError, setFetchError] = useState(null);
-	const [updateError, setUpdateError] = useState(null);
+	const [setUpdateError] = useState(null);
 	const [error, setError] = useState(null);
 
-	const { register, handleSubmit, errors } = useForm({
+	const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),
 	});
 
