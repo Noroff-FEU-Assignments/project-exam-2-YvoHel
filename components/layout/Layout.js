@@ -94,11 +94,6 @@ export default function Layout({ children }) {
                                 <a id="nav-link" href ="https://www.ledigtime.no/hairways/step1">Bestill time</a>
                         </li>
                         <li className="nav-item">
-                            <ActiveLink activeClassName="active" legacyBehavior href="/services">
-                                <a id="nav-link">Behandlinger</a>
-                            </ActiveLink>
-                        </li>
-                        <li className="nav-item">
                             <ActiveLink activeClassName="active" legacyBehavior href="/about">
                                 <a id="nav-link">Om oss</a>
                             </ActiveLink>
@@ -107,13 +102,6 @@ export default function Layout({ children }) {
                             <ActiveLink activeClassName="active" legacyBehavior href="/contact">
                                 <a id="nav-link">Kontakt</a>
                             </ActiveLink>
-                        </li>
-                        <li className="nav-item" id="login-icon">
-                            <Link legacyBehavior href="/login">
-                                <a id="nav-link" className="login-icon">
-                                    <LoginIcon />
-                                </a>
-                            </Link>
                         </li>
                     </ul>
                 </div>
